@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+
+{% block content%}
+<h1 class="text-center ">Welcone ash</h1>
+
+<h2>
+    {% if form.instance.pk %} 
+    edit tweet 
+    {% else %}
+    create tweet
+     {% endif %}
+
+     <form method="post" enctype="multipart/form-data"  class="form">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="btn btn-warning" type="submit">Submit</button>
+     </form>
+
+     <a href="{% url 'tweet_list' %}" class="btn btn-danger">back to list</a>
+</h2>
+{% endblock %}
